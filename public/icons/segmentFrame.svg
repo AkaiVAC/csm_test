@@ -1,0 +1,51 @@
+<svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <rect width="24" height="24" rx="4.71429" fill="white" />
+    <path
+        d="M11.1696 17.4911H4.79462V5.65179H15.2678V9.29465"
+        stroke="#2B2A70"
+        stroke-width="1.25223"
+        stroke-dasharray="1.25 1.25"
+    />
+    <ellipse
+        cx="4.79466"
+        cy="5.65178"
+        rx="1.36607"
+        ry="1.36607"
+        fill="#2B2A70"
+    />
+    <ellipse
+        cx="4.79466"
+        cy="17.4911"
+        rx="1.36607"
+        ry="1.36607"
+        fill="#2B2A70"
+    />
+    <circle cx="15.7232" cy="5.65178" r="1.36607" fill="#2B2A70" />
+    <path
+        d="M18.5715 12H13.5715C13.177 12 12.8572 12.3198 12.8572 12.7143V17.7143C12.8572 18.1088 13.177 18.4286 13.5715 18.4286H18.5715C18.966 18.4286 19.2857 18.1088 19.2857 17.7143V12.7143C19.2857 12.3198 18.966 12 18.5715 12Z"
+        stroke="#2B2A70"
+        stroke-width="0.982143"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+    <path
+        d="M19.2856 16.2857L17.4999 14.4999L13.5714 18.4285"
+        stroke="#2B2A70"
+        stroke-width="0.982143"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+    <path
+        d="M14.8215 14.5C15.1173 14.5 15.3572 14.2601 15.3572 13.9642C15.3572 13.6684 15.1173 13.4285 14.8215 13.4285C14.5256 13.4285 14.2858 13.6684 14.2858 13.9642C14.2858 14.2601 14.5256 14.5 14.8215 14.5Z"
+        stroke="#2B2A70"
+        stroke-width="0.982143"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>
