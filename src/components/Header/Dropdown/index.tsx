@@ -38,7 +38,7 @@ const Dropdown = ({ name, icon, entries }: DropdownProps) => {
     return (
         <DropdownContainer onClick={() => setOpen(true)}>
             {name}
-            {icon && <DropdownIcon src={`icons/${icon}.svg`} />}
+            {icon && <DropdownIcon src={`icons/${icon}.svg`} alt='' />}
             {open && (
                 <DropdownList ref={dropdownRef}>
                     {entries.map((entry, index) => (
