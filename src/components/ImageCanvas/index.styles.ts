@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const ImageCanvasContainer = styled.div`
+export const ImageContainer = styled.div`
+    position: relative;
+    border-radius: 1.5rem;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `;
 
 export const ImageMaskContainer = styled.div`

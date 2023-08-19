@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Theme, FontStyles, GlobalStyles } from './Theme';
+import { Theme, GlobalStyles, LibStyleOverrides } from './Theme';
 import { Divider, Header, SideNav } from '../components';
 
 const Container = styled.div`
@@ -20,8 +20,8 @@ const MainSection = styled.main`
 
 const AppLayout = ({ children }: { children: ReactNode }) => (
     <ThemeProvider theme={Theme}>
-        <FontStyles />
         <GlobalStyles />
+        <LibStyleOverrides />
         <Header />
         <Container>
             <SideNav />

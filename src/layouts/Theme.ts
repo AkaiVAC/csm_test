@@ -15,52 +15,6 @@ const Theme: ThemeOptions = {
     },
 };
 
-const FontStyles = createGlobalStyle`
-    @font-face {
-        font-family: 'Lato';
-        src:
-            local('Lato Regular'),
-            local('Lato-Regular'),
-            url('fonts/Lato-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'Lato';
-        src:
-            local('Lato Bold'),
-            local('Lato-Bold'),
-            url('fonts/Lato-Bold.woff2') format('woff2');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'Poppins';
-        src:
-            local('Poppins Regular'),
-            local('Poppins-Regular'),
-            url('fonts/Poppins-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'Poppins';
-        src:
-            local('Poppins Medium'),
-            local('Poppins-Medium'),
-            url('fonts/Poppins-Medium.woff2') format('woff2');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-    }
-`;
-
 const GlobalStyles = createGlobalStyle`
     :root {
         font-size: 16px;
@@ -93,4 +47,14 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export { Theme, FontStyles, GlobalStyles };
+const LibStyleOverrides = createGlobalStyle`
+    [class*="transform-component-module_wrapper"] {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 1.5rem;
+        position: relative;
+    }
+`;
+
+export { Theme, GlobalStyles, LibStyleOverrides };

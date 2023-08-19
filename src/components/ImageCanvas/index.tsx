@@ -1,10 +1,6 @@
 import { SetStateAction, useState } from 'react';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
-import {
-    ImageCanvasContainer,
-    ImageMaskContainer,
-    ImagePoint,
-} from './index.styles';
+import { ImageContainer, ImageMaskContainer, ImagePoint } from './index.styles';
 
 const ImageCanvas = () => {
     const [points, setPoints] = useState<Array<{ x: number; y: number }>>([]);
@@ -32,52 +28,47 @@ const ImageCanvas = () => {
     };
 
     return (
-        <ImageCanvasContainer>
-            <TransformWrapper
-                initialScale={1}
-                centerOnInit={true}
-                onZoom={handleZoom}
-                onPanning={() => setIsPanning(true)}
-                onPanningStop={() =>
-                    setTimeout(() => {
-                        setIsPanning(false);
-                    }, 1)
-                }
-            >
-                <TransformComponent>
-                    <div
-                        style={{ position: 'relative' }}
-                        onClick={(e) => handleClick(e)}
-                    >
-                        <img
-                            src='/obj.jpeg'
-                            alt='uploaded image'
+        <TransformWrapper
+            initialScale={1}
+            centerZoomedOut={true}
+            onZoom={handleZoom}
+            onPanning={() => setIsPanning(true)}
+            onPanningStop={() =>
+                setTimeout(() => {
+                    setIsPanning(false);
+                }, 1)
+            }
+        >
+            <TransformComponent>
+                <ImageContainer onClick={(e) => handleClick(e)}>
+                    <img
+                        src='/obj.jpeg'
+                        alt='uploaded image'
+                        style={{
+                            maxHeight: '30rem',
+                        }}
+                    />
+                    <ImageMaskContainer
+                        style={{
+                            opacity: maskOpacity,
+                        }}
+                    />
+                    {points.map((point, index) => (
+                        <ImagePoint
+                            key={index}
                             style={{
-                                maxHeight: '30rem',
+                                left: point.x,
+                                top: point.y,
+                                background: 'red',
+                                scale: `${1.25 / zoomLevel}`,
+                                width: 10,
+                                height: 10,
                             }}
                         />
-                        <ImageMaskContainer
-                            style={{
-                                opacity: maskOpacity,
-                            }}
-                        />
-                        {points.map((point, index) => (
-                            <ImagePoint
-                                key={index}
-                                style={{
-                                    left: point.x,
-                                    top: point.y,
-                                    background: 'red',
-                                    scale: `${1.25 / zoomLevel}`,
-                                    width: 10,
-                                    height: 10,
-                                }}
-                            />
-                        ))}
-                    </div>
-                </TransformComponent>
-            </TransformWrapper>
-        </ImageCanvasContainer>
+                    ))}
+                </ImageContainer>
+            </TransformComponent>
+        </TransformWrapper>
     );
 };
 
