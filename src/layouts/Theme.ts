@@ -15,7 +15,49 @@ const Theme: ThemeOptions = {
     },
 };
 
-const GlobalStyle = createGlobalStyle`
+const FontStyles = createGlobalStyle`
+    @font-face {
+        font-family: 'Lato';
+        src:
+            local('Lato Regular'),
+            local('Lato-Regular'),
+            url('Lato-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Lato';
+        src:
+            local('Lato Bold'),
+            local('Lato-Bold'),
+            url('Lato-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src:
+            local('Poppins Regular'),
+            local('Poppins-Regular'),
+            url('Poppins-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src:
+            local('Poppins Medium'),
+            local('Poppins-Medium'),
+            url('Poppins-Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+    }
+`;
+
+const GlobalStyles = createGlobalStyle`
     :root {
         font-size: 16px;
         line-height: 1.5;
@@ -47,4 +89,4 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export { Theme, GlobalStyle };
+export { Theme, FontStyles, GlobalStyles };
