@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TextIcon = styled.img<{ size?: string }>`
+export const TextIcon = styled.img<{ size?: string; theme: ThemeOptions }>`
     padding: 0.5rem;
     display: inline-flex;
     place-items: center;

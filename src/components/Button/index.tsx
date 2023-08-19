@@ -1,69 +1,16 @@
 import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
 import { Icon } from '..';
 import { IconProps } from '../Icon';
-
-export const ButtonContainer = css`
-    width: 100%;
-    height: 2.5rem;
-
-    font-size: 0.875rem;
-    font-weight: 700;
-    font-family: ${({ theme }) => theme.fonts.main};
-
-    border-radius: 0.25rem;
-    border-color: transparent;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-
-    cursor: pointer;
-`;
-
-export const FlatButton = styled.button`
-    ${ButtonContainer};
-    color: ${({ theme }) => theme.colors.secondary};
-    background-color: ${({ theme }) => theme.colors.background};
-
-    &:hover {
-        filter: brightness(0.95);
-    }
-
-    &:active {
-        filter: brightness(0.9);
-    }
-`;
-
-export const TextButton = styled.button`
-    ${ButtonContainer};
-    color: ${({ theme }) => theme.colors.secondary};
-    background-color: transparent;
-
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.background};
-    }
-
-    &:active {
-        filter: brightness(0.9);
-    }
-`;
-
-export const SuccessButton = styled.button`
-    ${ButtonContainer};
-    color: white;
-    background-color: ${({ theme }) => theme.colors.success};
-`;
+import { FlatButton, TextButton, SuccessButton } from './index.styles';
 
 export type ButtonProps = {
     variant: ButtonVariant;
     children: ReactNode;
-    icon?: { location: 'left' | 'right' } & Omit<IconProps, 'variant' | 'alt'>;
-    to?: string;
+    icon?: Omit<IconProps, 'variant' | 'alt'> & { location: 'left' | 'right' };
+    onClick?: () => void;
 };
 
-const Button = ({ variant, children, icon, to }: ButtonProps) => {
+const Button = ({ variant, children, icon, onClick }: ButtonProps) => {
     const contents = (
         <>
             {icon && icon.location === 'left' && (
@@ -78,23 +25,11 @@ const Button = ({ variant, children, icon, to }: ButtonProps) => {
 
     switch (variant) {
         case 'flat':
-            return (
-                <FlatButton onClick={() => to && window.open(to)}>
-                    {contents}
-                </FlatButton>
-            );
+            return <FlatButton onClick={onClick}>{contents}</FlatButton>;
         case 'text':
-            return (
-                <TextButton onClick={() => to && window.open(to)}>
-                    {contents}
-                </TextButton>
-            );
+            return <TextButton onClick={onClick}>{contents}</TextButton>;
         case 'success':
-            return (
-                <SuccessButton onClick={() => to && window.open(to)}>
-                    {contents}
-                </SuccessButton>
-            );
+            return <SuccessButton onClick={onClick}>{contents}</SuccessButton>;
         default:
             return null;
     }

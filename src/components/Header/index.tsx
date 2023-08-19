@@ -1,12 +1,12 @@
-import { Nav, Icon } from '..';
-import Dropdown from './Dropdown';
-import Logo from './Logo';
-import { HeaderContainer } from './index.styles';
+import { Nav, Icon, Dropdown } from '..';
+import { HeaderContainer, LogoImage } from './index.styles';
 
 const Header = () => {
     return (
         <HeaderContainer>
-            <Logo />
+            <a href='/' aria-label='Home'>
+                <LogoImage src='/logo.svg' alt='Logo' />
+            </a>
             <Nav variant='horizontal'>
                 <Dropdown
                     icon='chevronDown'

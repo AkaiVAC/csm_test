@@ -1,7 +1,7 @@
 import { Ref } from 'react';
 import styled from 'styled-components';
 
-export const DropdownContainer = styled.div`
+export const DropdownContainer = styled.div<{ theme: ThemeOptions }>`
     font-family: ${({ theme }) => theme.fonts.heading};
 
     display: inline-flex;
@@ -35,7 +35,7 @@ export const DropdownList = styled.ul<{ ref: Ref<HTMLElement> }>`
     cursor: pointer;
 `;
 
-export const DropdownListItem = styled.li`
+export const DropdownListItem = styled.li<{ theme: ThemeOptions }>`
     font-family: ${({ theme }) => theme.fonts.heading};
 
     &:first-of-type {

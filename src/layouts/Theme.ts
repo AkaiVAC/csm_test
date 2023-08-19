@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
-const Theme = {
+const Theme: ThemeOptions = {
     colors: {
         primary: '#2B2A6C',
         secondary: '#2B2A70',
         tertiary: '#C8EAFF',
         background: '#F8F9FA',
+        border: '#DEE2E6',
         success: '#28A745',
     },
     fonts: {
@@ -39,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
         padding-bottom: unset;
         height: calc(100vh - 1rem);
 
-        background-image: url('colors.png');
+        background-image: url('colors.webp');
         background-position: top;
         background-size: 120%;
         background-repeat: no-repeat;

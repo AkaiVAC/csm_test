@@ -13,3 +13,8 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
 `;
+
+export const LogoImage = styled.img`
+    width: 5rem;
+    height: auto;
+`;
