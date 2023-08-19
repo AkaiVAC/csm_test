@@ -9,16 +9,40 @@ export type IconProps = {
 const Icon = ({ variant, src, alt }: IconProps) => {
     switch (variant) {
         case 'text':
-            return <TextIcon src={`icons/${src}.svg`} alt={alt} width='100' />;
+            return (
+                <TextIcon
+                    src={`icons/${src}.svg`}
+                    alt={alt}
+                    width='41.6'
+                    height='41.6'
+                />
+            );
         case 'outlined':
             return (
-                <OutlinedIcon src={`icons/${src}.svg`} alt={alt} width='100' />
+                <OutlinedIcon
+                    src={`icons/${src}.svg`}
+                    alt={alt}
+                    width='41.6'
+                    height='41.6'
+                />
             );
         case 'flat':
-            return <FlatIcon src={`icons/${src}.svg`} alt={alt} width='100' />;
+            return (
+                <FlatIcon
+                    src={`icons/${src}.svg`}
+                    alt={alt}
+                    width='41.6'
+                    height='41.6'
+                />
+            );
         case 'circle':
             return (
-                <CircleIcon src={`icons/${src}.svg`} alt={alt} width='100' />
+                <CircleIcon
+                    src={`icons/${src}.svg`}
+                    alt={alt}
+                    width='41.6'
+                    height='41.6'
+                />
             );
         default:
             return null;
