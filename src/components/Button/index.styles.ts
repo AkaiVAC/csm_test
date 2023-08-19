@@ -5,7 +5,7 @@ export const ButtonContainer = styled.button<{ theme: ThemeOptions }>`
     height: 2.5rem;
 
     font-size: 0.875rem;
-    font-weight: 700;
+    font-weight: 400;
     font-family: ${({ theme }) => theme.fonts.main};
 
     border-radius: 0.25rem;

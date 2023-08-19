@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const TextIcon = styled.img<{ size?: string; theme: ThemeOptions }>`
-    width: 100%;
     max-width: 1.5rem;
     height: auto;
 
