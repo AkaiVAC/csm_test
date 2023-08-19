@@ -5,7 +5,12 @@ const Header = () => {
     return (
         <HeaderContainer>
             <a href='/' aria-label='Home'>
-                <LogoImage src='/logo.svg' alt='Logo' />
+                <LogoImage
+                    src='/logo.svg'
+                    alt='Logo'
+                    width='100%'
+                    height='auto'
+                />
             </a>
             <Nav variant='horizontal'>
                 <Dropdown
