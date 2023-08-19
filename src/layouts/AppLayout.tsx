@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
-import { Theme, GlobalStyles, LibStyleOverrides } from './theme';
+import { Theme, GlobalStyles, LibStyleOverrides } from './Theme';
 import { Button, Divider, Header, Icon, SideNav } from '../components';
 import {
     CanvasContainer,
