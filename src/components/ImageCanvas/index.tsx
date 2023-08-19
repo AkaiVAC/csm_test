@@ -4,7 +4,7 @@ import { ImageContainer, ImageMaskContainer, ImagePoint } from './index.styles';
 
 const ImageCanvas = () => {
     const [points, setPoints] = useState<Array<{ x: number; y: number }>>([]);
-    const [zoomLevel, setZoomLevel] = useState(1);
+    const [zoomLevel, setZoomLevel] = useState(2);
     const [isPanning, setIsPanning] = useState(false);
     const [maskOpacity] = useState(0);
 
@@ -29,7 +29,7 @@ const ImageCanvas = () => {
 
     return (
         <TransformWrapper
-            initialScale={1}
+            initialScale={zoomLevel}
             centerZoomedOut={true}
             onZoom={handleZoom}
             onPanning={() => setIsPanning(true)}
@@ -45,7 +45,7 @@ const ImageCanvas = () => {
                         src='/obj.jpeg'
                         alt='uploaded image'
                         style={{
-                            maxHeight: '30rem',
+                            maxHeight: '60vmin',
                         }}
                     />
                     <ImageMaskContainer

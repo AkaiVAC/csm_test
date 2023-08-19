@@ -6,19 +6,19 @@ const SideNav = () => {
         <>
             <Nav variant='vertical'>
                 <Button
-                    variant='flat'
+                    variant='sidebar'
                     icon={{ location: 'left', src: 'overview' }}
                 >
                     Overview
                 </Button>
                 <Button
-                    variant='text'
+                    variant='sidebar'
                     icon={{ location: 'left', src: 'segmentVideo' }}
                 >
                     Video Segmentation
                 </Button>
                 <Button
-                    variant='text'
+                    variant='sidebar'
                     icon={{ location: 'left', src: 'feedback' }}
                     onClick={() => window.open('http://www.duckduckgo.com')}
                 >

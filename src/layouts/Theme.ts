@@ -8,6 +8,7 @@ const Theme: ThemeOptions = {
         background: '#F8F9FA',
         border: '#DEE2E6',
         success: '#28A745',
+        danger: '#DC3545',
     },
     fonts: {
         main: 'lato, sans-serif',

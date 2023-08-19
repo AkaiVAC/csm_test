@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const ButtonContainer = styled.button<{ theme: ThemeOptions }>`
-    width: 100%;
+    width: fit-content;
     height: 2.5rem;
 
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 400;
-    font-family: ${({ theme }) => theme.fonts.main};
+    font-family: ${({ theme }) => theme.fonts.heading};
+
+    padding-inline: 1rem;
 
     border-radius: 0.25rem;
     border-color: transparent;
@@ -14,9 +16,14 @@ export const ButtonContainer = styled.button<{ theme: ThemeOptions }>`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 
     cursor: pointer;
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 `;
 
 export const FlatButton = styled(ButtonContainer)`
@@ -48,4 +55,17 @@ export const TextButton = styled(ButtonContainer)`
 export const SuccessButton = styled(ButtonContainer)`
     color: white;
     background-color: ${({ theme }) => theme.colors.success};
+`;
+
+export const DangerButton = styled(ButtonContainer)`
+    color: white;
+    background-color: ${({ theme }) => theme.colors.danger};
+`;
+
+export const SideBarEntry = styled(TextButton)`
+    font-size: 0.875rem;
+    font-family: ${({ theme }) => theme.fonts.main};
+
+    width: 100%;
+    gap: 1rem;
 `;

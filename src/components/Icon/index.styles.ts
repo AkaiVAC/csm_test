@@ -4,7 +4,6 @@ export const TextIcon = styled.img<{ size?: string; theme: ThemeOptions }>`
     max-width: 1.5rem;
     height: auto;
 
-    padding: 0.5rem;
     display: inline-flex;
     place-items: center;
 
@@ -14,9 +13,19 @@ export const TextIcon = styled.img<{ size?: string; theme: ThemeOptions }>`
     border-radius: 0.625rem;
 
     cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.95);
+    }
+
+    &:active {
+        filter: brightness(0.9);
+    }
 `;
 
 export const OutlinedIcon = styled(TextIcon)`
+    padding: 0.5rem;
+
     border-color: ${({ theme }) => theme.colors.tertiary};
 `;
 
