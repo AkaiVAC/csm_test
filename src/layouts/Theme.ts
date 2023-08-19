@@ -21,7 +21,7 @@ const FontStyles = createGlobalStyle`
         src:
             local('Lato Regular'),
             local('Lato-Regular'),
-            url('Lato-Regular.woff2') format('woff2');
+            url('fonts/Lato-Regular.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -32,7 +32,7 @@ const FontStyles = createGlobalStyle`
         src:
             local('Lato Bold'),
             local('Lato-Bold'),
-            url('Lato-Bold.woff2') format('woff2');
+            url('fonts/Lato-Bold.woff2') format('woff2');
         font-weight: 700;
         font-style: normal;
         font-display: swap;
@@ -43,7 +43,7 @@ const FontStyles = createGlobalStyle`
         src:
             local('Poppins Regular'),
             local('Poppins-Regular'),
-            url('Poppins-Regular.woff2') format('woff2');
+            url('fonts/Poppins-Regular.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -54,7 +54,7 @@ const FontStyles = createGlobalStyle`
         src:
             local('Poppins Medium'),
             local('Poppins-Medium'),
-            url('Poppins-Medium.woff2') format('woff2');
+            url('fonts/Poppins-Medium.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
