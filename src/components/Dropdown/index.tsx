@@ -42,8 +42,8 @@ const Dropdown = ({ name, icon, entries }: DropdownProps) => {
                 <DropdownIcon
                     src={`icons/${icon}.svg`}
                     alt=''
-                    width='100%'
-                    height='auto'
+                    width='15'
+                    height='9'
                 />
             )}
             {open && (
