@@ -49,9 +49,6 @@ const ImageCanvas = () => {
             type: ImageCanvasAction.SET_HISTORY,
             payload: history.length >= 1 ? [...history, points] : [points],
         });
-
-        console.log('points', points);
-        console.log('history', history);
     };
 
     const removePointOnHover = (activePoint: ImagePoint) => {

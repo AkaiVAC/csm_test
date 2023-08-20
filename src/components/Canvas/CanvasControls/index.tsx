@@ -58,8 +58,6 @@ const CanvasControls = () => {
                     type: ImageCanvasAction.SET_HISTORY,
                     payload: history.slice(0, -1),
                 });
-
-                console.log(history);
             },
         },
         {
