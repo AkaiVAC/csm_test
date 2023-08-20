@@ -15,10 +15,9 @@ export const CanvasContainer = styled.div`
 
 export const InteractiveArea = styled.div`
     width: 100%;
-    padding: 1rem;
 
     background-color: white;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.5rem;
 `;

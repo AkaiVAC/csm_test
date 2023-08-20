@@ -6,7 +6,7 @@ export const Container = styled.div`
     height: calc(100vh - 6.625rem);
 
     display: grid;
-    grid-template: 1fr / 16rem 1px auto;
+    grid-template: 1fr / minmax(15rem, 10%) 1px auto;
 `;
 
 export const MainSection = styled.main`
@@ -15,5 +15,5 @@ export const MainSection = styled.main`
     display: grid;
     grid-template: 90% 10% / 1fr;
     align-items: start;
-    gap: 1rem;
+    gap: 0.25rem;
 `;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ImageCanvasContainer = styled.div`
     width: 100%;
+    padding-block: 0.5rem;
 `;
 
 export const ImageContainer = styled.div`

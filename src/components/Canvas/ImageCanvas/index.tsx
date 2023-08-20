@@ -25,9 +25,7 @@ const ImageCanvas = () => {
     return (
         <ImageCanvasContainer>
             <TransformWrapper
-                onInit={(ref) => {
-                    setTimeout(() => ref.centerView(), 100);
-                }}
+                onInit={(ref) => setTimeout(() => ref.centerView(1, 0), 100)}
                 onZoom={handleZoom}
                 onPanning={() => setIsPanning(true)}
                 onPanningStop={() =>
