@@ -27,46 +27,32 @@ const Button = ({
     const contents = (
         <>
             {icon && icon.location === 'left' && (
-                <Icon variant='text' src={icon.src} alt='' />
+                <Icon variant='text' src={icon.src} alt='' tabIndex={-1} />
             )}
             {children}
             {icon && icon.location === 'right' && (
-                <Icon variant='text' src={icon.src} alt='' />
+                <Icon variant='text' src={icon.src} alt='' tabIndex={-1} />
             )}
         </>
     );
 
+    const attrs = {
+        disabled,
+        onClick,
+        tabIndex: 0,
+    };
+
     switch (variant) {
         case 'flat':
-            return (
-                <FlatButton disabled={disabled} onClick={onClick}>
-                    {contents}
-                </FlatButton>
-            );
+            return <FlatButton {...attrs}>{contents}</FlatButton>;
         case 'text':
-            return (
-                <TextButton disabled={disabled} onClick={onClick}>
-                    {contents}
-                </TextButton>
-            );
+            return <TextButton {...attrs}>{contents}</TextButton>;
         case 'success':
-            return (
-                <SuccessButton disabled={disabled} onClick={onClick}>
-                    {contents}
-                </SuccessButton>
-            );
+            return <SuccessButton {...attrs}>{contents}</SuccessButton>;
         case 'danger':
-            return (
-                <DangerButton disabled={disabled} onClick={onClick}>
-                    {contents}
-                </DangerButton>
-            );
+            return <DangerButton {...attrs}>{contents}</DangerButton>;
         case 'sidebar':
-            return (
-                <SideBarEntry disabled={disabled} onClick={onClick}>
-                    {contents}
-                </SideBarEntry>
-            );
+            return <SideBarEntry {...attrs}>{contents}</SideBarEntry>;
         default:
             return null;
     }
