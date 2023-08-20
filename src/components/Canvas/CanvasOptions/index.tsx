@@ -13,7 +13,7 @@ const CanvasOptions = () => {
                 <p>
                     <b>Hint:</b>
                     <br />
-                    Hover over the points on the image to remove them.
+                    Tap / Hover over points on the image to remove them.
                 </p>
             )}
 
