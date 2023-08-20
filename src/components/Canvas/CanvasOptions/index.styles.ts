@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const CanvasOptionContainer = styled.div`
-    flex-shrink: 2.1;
-
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    height: fit-content;
     padding: 1rem;
 
     display: flex;
@@ -25,11 +23,22 @@ export const CanvasOptionContainer = styled.div`
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
         & {
+            grid-area: options;
+
             width: 100%;
             height: unset;
 
+            padding: unset;
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
             & > button {
-                max-width: unset;
+                max-width: 8rem;
+                height: unset;
+                padding: 0.25rem 0.25rem;
             }
         }
     }

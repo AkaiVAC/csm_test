@@ -6,8 +6,13 @@ import {
     ImageMaskContainer,
     ImagePoint,
 } from './index.styles';
-import { ImageCanvasAction, ImageCanvasTool } from '../../../../types/enums';
+import {
+    DeviceType,
+    ImageCanvasAction,
+    ImageCanvasTool,
+} from '../../../../types/enums';
 import { useCanvasStore } from '../index.hook';
+import { useDeviceStore } from '../../../contexts/deviceWidth/index.hook';
 
 const ImageCanvas = () => {
     const { state, dispatch } = useCanvasStore();
@@ -81,10 +86,15 @@ const ImageCanvas = () => {
         dispatch({ type: ImageCanvasAction.SET_IS_PANNING, payload: value });
     };
 
+    const initialScale =
+        useDeviceStore().deviceType >= DeviceType.Tablet ? 1 : 2;
+
     return (
         <ImageCanvasContainer>
             <TransformWrapper
-                onInit={(ref) => setTimeout(() => ref.centerView(1, 0), 100)}
+                onInit={(ref) =>
+                    setTimeout(() => ref.centerView(initialScale, 0), 100)
+                }
                 onZoom={handleZoom}
                 onPanning={() => setIsPanning(true)}
                 onPanningStop={() =>

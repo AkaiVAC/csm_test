@@ -23,7 +23,7 @@ export const Container = styled.div`
     height: calc(100dvh - 6.625rem);
 
     display: grid;
-    grid-template: 1fr / max-content 1px auto;
+    grid-template: 1fr / max-content 0.0625rem auto;
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
         & {
@@ -40,8 +40,6 @@ export const Container = styled.div`
 `;
 
 export const MainSection = styled.main`
-    padding: 1rem;
-
     display: grid;
     grid-template: 90% 10% / 1fr;
     align-items: start;
@@ -50,9 +48,8 @@ export const MainSection = styled.main`
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
         & {
             height: fit-content;
-            max-height: 100dvh;
             padding: unset;
-            grid-template: 3rem 1fr / 1fr;
+            grid-template: 3.4rem 1fr / 1fr;
         }
     }
 `;

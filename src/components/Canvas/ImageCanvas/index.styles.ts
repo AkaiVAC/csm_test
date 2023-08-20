@@ -1,8 +1,24 @@
 import styled from 'styled-components';
 
-export const ImageCanvasContainer = styled.div`
+export const ImageCanvasContainer = styled.div<{ theme: ThemeOptions }>`
     width: 100%;
-    padding-block: 0.5rem;
+    height: 30rem;
+    background-color: ${({ theme }) => theme.colors.border};
+    border-radius: 1.5rem;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
+        & {
+            height: 34rem;
+        }
+    }
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            grid-area: canvas;
+
+            height: calc(100% - 2rem);
+        }
+    }
 `;
 
 export const ImageContainer = styled.div`

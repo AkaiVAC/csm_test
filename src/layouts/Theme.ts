@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         line-height: 1.5;
         font-weight: 400;
+        box-sizing: border-box;
 
         color-scheme: light dark;
         color: hsla(241, 45%, 30%, 1);
@@ -45,8 +46,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 1rem;
         padding-bottom: unset;
         height: calc(100vh - 1rem);
-        overflow-x: hidden;
-        box-sizing: border-box;
     }
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
