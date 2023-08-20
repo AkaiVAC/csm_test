@@ -19,3 +19,16 @@ export const VerticalNav = styled(HorizontalNav)`
         margin-top: auto;
     }
 `;
+
+export const SideNavContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            width: 100%;
+            height: fit-content;
+            justify-content: space-evenly;
+        }
+    }
+`;

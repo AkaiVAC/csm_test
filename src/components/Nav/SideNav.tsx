@@ -1,21 +1,31 @@
 import { Tooltip } from 'react-tooltip';
 import Nav from '.';
 import { Button, Divider } from '..';
+import { SideNavContainer } from './index.styles';
+import { DeviceType } from '../../../types/enums';
+import { useDeviceStore } from '../../contexts/deviceWidth/index.hook';
 
 const SideNav = () => {
+    const { deviceType } = useDeviceStore();
+
     return (
-        <>
-            <Nav variant='vertical'>
+        <SideNavContainer>
+            <Nav
+                variant={
+                    deviceType < DeviceType.Tablet ? 'horizontal' : 'vertical'
+                }
+            >
                 <Tooltip
                     anchorSelect='.overview'
                     content='Overview'
                     place='right'
                 />
                 <Button
+                    data-sds=''
                     variant='sidebar'
                     icon={{ location: 'left', src: 'overview' }}
                 >
-                    Overview
+                    {deviceType > DeviceType.Tablet && 'Overview'}
                 </Button>
                 <Tooltip
                     anchorSelect='.segmentVideo'
@@ -26,7 +36,7 @@ const SideNav = () => {
                     variant='sidebar'
                     icon={{ location: 'left', src: 'segmentVideo' }}
                 >
-                    Video Segmentation
+                    {deviceType > DeviceType.Tablet && 'Video Segmentation'}
                 </Button>
                 <Tooltip
                     anchorSelect='.feedback'
@@ -40,11 +50,11 @@ const SideNav = () => {
                         window.open('https://forms.gle/XhCeamGgyiF888w1A')
                     }
                 >
-                    Submit Feedback
+                    {deviceType > DeviceType.Tablet && 'Submit Feedback'}
                 </Button>
             </Nav>
-            <Divider variant='vertical' />
-        </>
+            {deviceType > DeviceType.Mobile && <Divider variant='vertical' />}
+        </SideNavContainer>
     );
 };
 

@@ -14,6 +14,11 @@ const Theme: ThemeOptions = {
         main: 'lato, sans-serif',
         heading: 'Poppins, serif',
     },
+    sizes: {
+        mobile: 720,
+        tablet: 1024,
+        monitor: 1366,
+    },
 };
 
 const GlobalStyles = createGlobalStyle`
@@ -40,6 +45,13 @@ const GlobalStyles = createGlobalStyle`
         padding: 1rem;
         padding-bottom: unset;
         height: calc(100vh - 1rem);
+        overflow-x: hidden;
+    }
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
+        body {
+            padding: unset;
+        }
     }
 `;
 

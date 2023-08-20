@@ -17,3 +17,9 @@ export enum ImageCanvasAction {
     SET_IS_PANNING = 'SET_IS_PANNING',
     SET_MASK_OPACITY = 'SET_MASK_OPACITY',
 }
+
+export enum DeviceType {
+    Mobile = 0,
+    Tablet = 1,
+    Monitor = 2,
+}

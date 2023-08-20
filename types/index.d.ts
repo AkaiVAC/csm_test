@@ -13,6 +13,11 @@ declare global {
             main: string;
             heading: string;
         };
+        sizes: {
+            mobile: number;
+            tablet: number;
+            monitor: number;
+        };
     };
 
     type IconVariant = 'outlined' | 'flat' | 'circle' | 'text';
@@ -75,6 +80,10 @@ declare global {
     type CanvasContextType = {
         state: ImageCanvasState;
         dispatch: Dispatch<ImageCanvasActionType>;
+    };
+    type DeviceContextType = {
+        deviceType: import('./enums').DeviceType;
+        deviceWidth: number;
     };
 }
 export {};

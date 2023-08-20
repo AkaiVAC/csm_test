@@ -25,7 +25,14 @@ export const Container = styled.div`
     height: calc(100vh - 6.625rem);
 
     display: grid;
-    grid-template: 1fr / minmax(15rem, 10%) 1px auto;
+    grid-template: 1fr / min-content auto;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            max-height: 100dvh;
+            grid-template: 3rem 1fr / 1fr;
+        }
+    }
 `;
 
 export const MainSection = styled.main`
@@ -35,4 +42,13 @@ export const MainSection = styled.main`
     grid-template: 90% 10% / 1fr;
     align-items: start;
     gap: 0.25rem;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            height: fit-content;
+            max-height: 100dvh;
+            padding: unset;
+            grid-template: 3rem 1fr / 1fr;
+        }
+    }
 `;

@@ -10,6 +10,15 @@ export const CanvasContainer = styled.div`
         'canvas';
 
     place-items: start;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            grid-template: 6rem auto / 1fr;
+            grid-template-areas:
+                'nav '
+                'canvas';
+        }
+    }
 `;
 
 export const InteractiveArea = styled.div`
@@ -19,4 +28,11 @@ export const InteractiveArea = styled.div`
     background-color: white;
     display: flex;
     gap: 0.5rem;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            flex-wrap: wrap;
+            /* flex-direction: center; */
+        }
+    }
 `;

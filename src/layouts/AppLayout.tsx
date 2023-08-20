@@ -1,24 +1,24 @@
-import { ThemeProvider } from 'styled-components';
-import { Theme, GlobalStyles, LibStyleOverrides } from './Theme';
+import { DeviceType } from '../../types/enums';
 import { Canvas, Divider, Header, SideNav } from '../components';
+import { useDeviceStore } from '../contexts/deviceWidth/index.hook';
 import { TopBG, Container, MainSection, BottomBG } from './layout.styles';
 
 const AppLayout = () => {
     return (
-        <ThemeProvider theme={Theme}>
-            <GlobalStyles />
-            <LibStyleOverrides />
+        <>
             <TopBG />
             <Header />
             <Container>
                 <SideNav />
                 <MainSection>
                     <Canvas />
-                    <Divider variant='horizontal' />
+                    {useDeviceStore().deviceType > DeviceType.Mobile && (
+                        <Divider variant='horizontal' />
+                    )}
                 </MainSection>
             </Container>
             <BottomBG />
-        </ThemeProvider>
+        </>
     );
 };
 

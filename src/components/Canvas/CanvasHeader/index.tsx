@@ -1,8 +1,9 @@
 import { Tooltip } from 'react-tooltip';
 import { Icon, Button } from '../..';
-import { ImageCanvasTool } from '../../../../types/enums';
+import { DeviceType, ImageCanvasTool } from '../../../../types/enums';
 import { CanvasHeaderContainer, SessionTitle } from './index.styles';
 import { useCanvasStore } from '../index.hook';
+import { useDeviceStore } from '../../../contexts/deviceWidth/index.hook';
 
 const CanvasHeader = () => (
     <CanvasHeaderContainer>
@@ -29,7 +30,7 @@ const CanvasHeader = () => (
                 useCanvasStore().state.activeTool !== ImageCanvasTool.Segment
             }
         >
-            Download
+            {useDeviceStore().deviceType > DeviceType.Tablet && 'Download'}
         </Button>
     </CanvasHeaderContainer>
 );

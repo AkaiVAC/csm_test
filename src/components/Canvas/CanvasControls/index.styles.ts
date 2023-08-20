@@ -13,4 +13,10 @@ export const CanvasControlContainer = styled.div`
     grid-auto-flow: row;
 
     gap: 1rem;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            justify-content: center;
+        }
+    }
 `;

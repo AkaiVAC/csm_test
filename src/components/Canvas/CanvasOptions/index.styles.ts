@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CanvasOptionContainer = styled.div`
     flex-shrink: 2.1;
-    justify-self: end;
 
     width: 100%;
     height: 100%;
@@ -23,6 +22,17 @@ export const CanvasOptionContainer = styled.div`
     & > :nth-child(3) {
         margin-top: auto;
     }
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            width: 100%;
+            height: unset;
+
+            & > button {
+                max-width: unset;
+            }
+        }
+    }
 `;
 
 export const OpacityControl = styled.label<{ theme: ThemeOptions }>`
@@ -38,4 +48,14 @@ export const OpacityControl = styled.label<{ theme: ThemeOptions }>`
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
+        & {
+            width: 100%;
+
+            & > input {
+                width: 80%;
+            }
+        }
+    }
 `;
