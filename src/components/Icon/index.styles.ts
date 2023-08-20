@@ -14,12 +14,8 @@ export const TextIcon = styled.img<{ size?: string; theme: ThemeOptions }>`
 
     cursor: pointer;
 
-    &:hover {
-        filter: brightness(0.95);
-    }
-
-    &:active {
-        filter: brightness(0.9);
+    :is(&.disabled, &.disabled:hover, &.disabled:active) {
+        filter: contrast(0.5) opacity(0.5);
     }
 `;
 
@@ -32,6 +28,14 @@ export const OutlinedIcon = styled(TextIcon)`
 export const FlatIcon = styled(OutlinedIcon)`
     border-color: ${({ theme }) => theme.colors.background};
     background-color: ${({ theme }) => theme.colors.background};
+
+    &:hover {
+        filter: brightness(0.95);
+    }
+
+    &:active {
+        filter: brightness(0.9);
+    }
 `;
 
 export const CircleIcon = styled(FlatIcon)`
