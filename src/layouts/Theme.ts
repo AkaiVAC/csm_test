@@ -40,11 +40,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 1rem;
         padding-bottom: unset;
         height: calc(100vh - 1rem);
-
-        background-image: url('colors.webp');
-        background-position: top;
-        background-size: 120%;
-        background-repeat: no-repeat;
     }
 `;
 
