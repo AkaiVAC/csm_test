@@ -94,12 +94,20 @@ const CanvasControls = () => {
             variant:
                 activeTool === ImageCanvasTool.Segment ? 'flat' : 'outlined',
             src: 'segmentFrame',
-            alt: 'Segment frame from image',
-            onClick: () =>
+            alt: points.length
+                ? 'Segment frame from image'
+                : 'Add points to start segmentation',
+            disabled: Boolean(!points.length),
+            onClick: () => {
                 dispatch({
                     type: ImageCanvasAction.SET_ACTIVE_TOOL,
                     payload: ImageCanvasTool.Segment,
-                }),
+                });
+                dispatch({
+                    type: ImageCanvasAction.SET_MASK_OPACITY,
+                    payload: 0.5,
+                });
+            },
         },
         {
             variant: activeTool === ImageCanvasTool.Pan ? 'flat' : 'outlined',
@@ -115,14 +123,16 @@ const CanvasControls = () => {
 
     return (
         <CanvasControlContainer>
-            {controls.map(({ variant, src, alt, onClick }, index) => (
+            {controls.map(({ variant, src, alt, disabled, onClick }, index) => (
                 <div key={index}>
                     <Tooltip anchorSelect={`.${src}`} content={alt} />
                     <Icon
                         variant={variant}
                         src={src}
                         alt={alt}
+                        disabled={disabled}
                         onClick={onClick}
+                        tabIndex={0}
                     />
                 </div>
             ))}

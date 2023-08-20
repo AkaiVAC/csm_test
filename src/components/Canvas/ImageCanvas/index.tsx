@@ -117,24 +117,27 @@ const ImageCanvas = () => {
                             />
                         )}
 
-                        {points.map((point, index) => (
-                            <ImagePoint
-                                key={index}
-                                onMouseOver={() => removePointOnHover(point)}
-                                style={{
-                                    left: point.x,
-                                    top: point.y,
-                                    background: `${
-                                        point.type === 'object'
-                                            ? 'limegreen'
-                                            : 'red'
-                                    }`,
-                                    scale: `${1.25 / zoomLevel}`,
-                                    width: 10,
-                                    height: 10,
-                                }}
-                            />
-                        ))}
+                        {activeTool !== ImageCanvasTool.Segment &&
+                            points.map((point, index) => (
+                                <ImagePoint
+                                    key={index}
+                                    onMouseOver={() =>
+                                        removePointOnHover(point)
+                                    }
+                                    style={{
+                                        left: point.x,
+                                        top: point.y,
+                                        background: `${
+                                            point.type === 'object'
+                                                ? 'limegreen'
+                                                : 'red'
+                                        }`,
+                                        scale: `${1.25 / zoomLevel}`,
+                                        width: 10,
+                                        height: 10,
+                                    }}
+                                />
+                            ))}
                     </ImageContainer>
                 </TransformComponent>
             </TransformWrapper>

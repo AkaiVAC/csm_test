@@ -9,35 +9,39 @@ const CanvasOptions = () => {
 
     return (
         <CanvasOptionContainer>
-            <Button
-                variant={pointType === 'object' ? 'success' : 'flat'}
-                onClick={() =>
-                    dispatch({
-                        type: ImageCanvasAction.SET_POINT_TYPE,
-                        payload: 'object',
-                    })
-                }
-            >
-                Object
-            </Button>
-            <Button
-                variant={pointType === 'background' ? 'danger' : 'flat'}
-                onClick={() =>
-                    dispatch({
-                        type: ImageCanvasAction.SET_POINT_TYPE,
-                        payload: 'background',
-                    })
-                }
-            >
-                Background
-            </Button>
-
             {activeTool === ImageCanvasTool.Erase && (
                 <p>
                     <b>Hint:</b>
                     <br />
                     Hover over the points on the image to remove them.
                 </p>
+            )}
+
+            {activeTool === ImageCanvasTool.Add && (
+                <>
+                    <Button
+                        variant={pointType === 'object' ? 'success' : 'flat'}
+                        onClick={() =>
+                            dispatch({
+                                type: ImageCanvasAction.SET_POINT_TYPE,
+                                payload: 'object',
+                            })
+                        }
+                    >
+                        Object
+                    </Button>
+                    <Button
+                        variant={pointType === 'background' ? 'danger' : 'flat'}
+                        onClick={() =>
+                            dispatch({
+                                type: ImageCanvasAction.SET_POINT_TYPE,
+                                payload: 'background',
+                            })
+                        }
+                    >
+                        Background
+                    </Button>
+                </>
             )}
 
             {activeTool === ImageCanvasTool.Segment && (
