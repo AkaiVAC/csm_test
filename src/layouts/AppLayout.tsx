@@ -4,18 +4,23 @@ import { useDeviceStore } from '../contexts/deviceWidth/index.hook';
 import { TopBG, Container, MainSection, BottomBG } from './layout.styles';
 
 const AppLayout = () => {
+    const deviceStore = useDeviceStore();
     return (
         <>
             <TopBG />
             <Header />
             <Container>
-                <SideNav />
+                {deviceStore.deviceType >= DeviceType.Tablet && <SideNav />}
+                {deviceStore.deviceType > DeviceType.Mobile && (
+                    <Divider variant='vertical' />
+                )}
                 <MainSection>
                     <Canvas />
-                    {useDeviceStore().deviceType > DeviceType.Mobile && (
+                    {deviceStore.deviceType > DeviceType.Mobile && (
                         <Divider variant='horizontal' />
                     )}
                 </MainSection>
+                {deviceStore.deviceType < DeviceType.Tablet && <SideNav />}
             </Container>
             <BottomBG />
         </>

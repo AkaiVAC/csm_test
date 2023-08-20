@@ -46,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
         padding-bottom: unset;
         height: calc(100vh - 1rem);
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {

@@ -16,21 +16,25 @@ export const TopBG = styled.div`
 
 export const BottomBG = styled(TopBG)`
     rotate: 180deg;
-    background-size: 25%;
+    background-size: 50%;
 `;
 
 export const Container = styled.div`
-    margin: 0.5rem;
-    margin-bottom: unset;
-    height: calc(100vh - 6.625rem);
+    height: calc(100dvh - 6.625rem);
 
     display: grid;
-    grid-template: 1fr / min-content auto;
+    grid-template: 1fr / max-content 1px auto;
+
+    @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
+        & {
+            height: calc(100dvh - 4.625rem);
+        }
+    }
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
         & {
-            max-height: 100dvh;
-            grid-template: 3rem 1fr / 1fr;
+            height: calc(100dvh - 3.8rem);
+            grid-template: calc(100dvh - 7.3rem) 3.5rem / 1fr;
         }
     }
 `;
