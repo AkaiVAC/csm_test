@@ -22,7 +22,7 @@ export const ButtonContainer = styled.button<{ theme: ThemeOptions }>`
 
     &:disabled {
         pointer-events: none;
-        opacity: 0.5;
+        filter: contrast(0.5);
     }
 `;
 

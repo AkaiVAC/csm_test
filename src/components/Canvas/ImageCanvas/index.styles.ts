@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const ImageCanvasContainer = styled.div`
+    width: 100%;
+`;
+
 export const ImageContainer = styled.div`
     position: relative;
     border-radius: 1.5rem;

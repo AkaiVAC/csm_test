@@ -15,23 +15,5 @@ export const MainSection = styled.main`
     display: grid;
     grid-template: 90% 10% / 1fr;
     align-items: start;
-`;
-
-export const SessionTitle = styled.h2<{ theme: ThemeOptions }>`
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-family: ${({ theme }) => theme.fonts.heading};
-
-    margin: unset;
-`;
-
-export const CanvasContainer = styled.div`
-    display: grid;
-    grid-template: 3.5rem auto / 10rem 2fr 10rem;
-    grid-template-areas:
-        'nav info download'
-        'controls canvas options';
-
-    place-items: center;
     gap: 1rem;
 `;

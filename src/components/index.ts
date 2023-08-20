@@ -5,4 +5,4 @@ export { default as SideNav } from './Nav/SideNav';
 export { default as Header } from './Header/index';
 export { default as Button } from './Button/index';
 export { default as Divider } from './Divider/index';
-export { default as ImageCanvas } from './ImageCanvas/index';
+export { default as Canvas } from './Canvas/index';

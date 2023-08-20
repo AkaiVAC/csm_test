@@ -49,6 +49,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const LibStyleOverrides = createGlobalStyle`
+    /* ReactZoomPanPinch */
     [class*="transform-component-module_wrapper"] {
         width: 100%;
         height: 100%;
