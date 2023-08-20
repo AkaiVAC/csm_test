@@ -9,15 +9,14 @@ export const CanvasContainer = styled.div`
         'nav '
         'canvas';
 
-    place-items: center;
-    gap: 1rem;
+    place-items: start;
 `;
 
 export const InteractiveArea = styled.div`
     width: 100%;
+    height: 100%;
 
     background-color: white;
     display: flex;
-    flex-direction: row;
     gap: 0.5rem;
 `;

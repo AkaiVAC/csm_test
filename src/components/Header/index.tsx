@@ -20,11 +20,13 @@ const Header = () => {
                     variant='circle'
                     src='notifications'
                     alt='Notification button'
+                    tabIndex={0}
                 ></Icon>
                 <Icon
                     variant='circle'
                     src='user'
                     alt='user profile button'
+                    tabIndex={0}
                 ></Icon>
             </Nav>
         </HeaderContainer>

@@ -36,7 +36,16 @@ const Dropdown = ({ name, icon, entries }: DropdownProps) => {
     }, [open, dropdownRef]);
 
     return (
-        <DropdownContainer onClick={() => setOpen(true)}>
+        <DropdownContainer
+            onClick={() => setOpen(true)}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setOpen(!open);
+                }
+            }}
+            tabIndex={0}
+        >
             {name}
             {icon && (
                 <DropdownIcon
@@ -44,17 +53,30 @@ const Dropdown = ({ name, icon, entries }: DropdownProps) => {
                     alt=''
                     width='15'
                     height='9'
+                    tabIndex={-1}
                 />
             )}
             {open && (
-                <DropdownList ref={dropdownRef}>
+                <DropdownList ref={dropdownRef} tabIndex={-1}>
                     {entries.map((entry, index) => (
                         <DropdownListItem
                             key={index}
+                            tabIndex={-1}
                             onClick={() => setOpen(false)}
                         >
                             {entry.destination ? (
-                                <DropdownLink href={entry.destination}>
+                                <DropdownLink
+                                    href={entry.destination}
+                                    onKeyDown={(e) => {
+                                        if (
+                                            e.key === 'Enter' ||
+                                            e.key === ' '
+                                        ) {
+                                            e.preventDefault();
+                                            e.currentTarget.click();
+                                        }
+                                    }}
+                                >
                                     {entry.name}
                                 </DropdownLink>
                             ) : (

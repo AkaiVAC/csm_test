@@ -18,6 +18,7 @@ const CanvasHeader = () => (
                 alt='back button'
                 width='12'
                 height='12'
+                tabIndex={0}
             />
         </div>
         <SessionTitle>SESSION_1687955097_5347443</SessionTitle>
