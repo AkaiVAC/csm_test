@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { Theme, GlobalStyles, LibStyleOverrides } from './Theme';
 import { Canvas, Divider, Header, SideNav } from '../components';
 import { Container, MainSection } from './layout.styles';
+import { CanvasProvider } from '../stores/canvasStore';
 
 const AppLayout = () => {
     return (
@@ -12,7 +13,9 @@ const AppLayout = () => {
             <Container>
                 <SideNav />
                 <MainSection>
-                    <Canvas />
+                    <CanvasProvider>
+                        <Canvas />
+                    </CanvasProvider>
                     <Divider variant='horizontal' />
                 </MainSection>
             </Container>

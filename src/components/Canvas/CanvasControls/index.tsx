@@ -2,76 +2,116 @@ import { useEffect } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { CanvasControlContainer } from './index.styles';
 import { Icon } from '../..';
-import { ImageAction } from '../../../../types/enums';
+import { ImageCanvasTool, ImageCanvasAction } from '../../../../types/enums';
 import { IconProps } from '../../Icon';
-import { useCanvas } from '../index.hook';
+import { useCanvasStore } from '../index.hook';
 
 const CanvasControls = () => {
-    const {
-        history,
-        setHistory,
-        activeTool,
-        setActiveTool,
-        setPoints,
-        setCursorType,
-    } = useCanvas();
+    const { state, dispatch } = useCanvasStore();
+    const { activeTool, history, points } = state;
 
     useEffect(() => {
         switch (activeTool) {
-            case ImageAction.Add:
-                setCursorType('crosshair');
+            case ImageCanvasTool.Add:
+                dispatch({
+                    type: ImageCanvasAction.SET_CURSOR_TYPE,
+                    payload: 'crosshair',
+                });
                 break;
-            case ImageAction.Erase:
-                setCursorType(`url('icons/eraser.svg'), auto`);
+            case ImageCanvasTool.Erase:
+                dispatch({
+                    type: ImageCanvasAction.SET_CURSOR_TYPE,
+                    payload: `url('icons/eraser.svg'), auto`,
+                });
                 break;
-            case ImageAction.Pan:
-                setCursorType('all-scroll');
+            case ImageCanvasTool.Pan:
+                dispatch({
+                    type: ImageCanvasAction.SET_CURSOR_TYPE,
+                    payload: 'all-scroll',
+                });
                 break;
         }
-    }, [activeTool, setCursorType]);
+    }, [activeTool, dispatch]);
 
     const controls: Array<IconProps> = [
         {
-            variant: activeTool === ImageAction.Add ? 'flat' : 'outlined',
+            variant: activeTool === ImageCanvasTool.Add ? 'flat' : 'outlined',
             src: 'addPoint',
             alt: 'Add point on image',
-            onClick: () => setActiveTool(ImageAction.Add),
+            onClick: () => {
+                dispatch({
+                    type: ImageCanvasAction.SET_ACTIVE_TOOL,
+                    payload: ImageCanvasTool.Add,
+                });
+            },
         },
         {
             variant: 'outlined',
             src: 'undo',
             alt: 'Undo point addition',
             onClick: () => {
-                setPoints(history.length ? history.slice(-1)[0] : []);
-                setHistory(history.slice(0, -1));
+                dispatch({
+                    type: ImageCanvasAction.SET_POINTS,
+                    payload: history.length ? history.slice(-1)[0] : [],
+                });
+                dispatch({
+                    type: ImageCanvasAction.SET_HISTORY,
+                    payload: history.slice(0, -1),
+                });
+
+                console.log(history);
             },
         },
         {
-            variant: activeTool === ImageAction.Erase ? 'flat' : 'outlined',
+            variant: activeTool === ImageCanvasTool.Erase ? 'flat' : 'outlined',
             src: 'erase',
             alt: 'Erase points on image',
-            onClick: () => setActiveTool(ImageAction.Erase),
+            onClick: () =>
+                dispatch({
+                    type: ImageCanvasAction.SET_ACTIVE_TOOL,
+                    payload: ImageCanvasTool.Erase,
+                }),
         },
         {
             variant: 'outlined',
             src: 'clear',
             alt: 'Clear all points on image',
             onClick: () => {
-                setPoints([]);
-                setActiveTool(ImageAction.Add);
+                dispatch({
+                    type: ImageCanvasAction.SET_POINTS,
+                    payload: [],
+                });
+                dispatch({
+                    type: ImageCanvasAction.SET_ACTIVE_TOOL,
+                    payload: ImageCanvasTool.Add,
+                });
+                dispatch({
+                    type: ImageCanvasAction.SET_HISTORY,
+                    payload:
+                        history.length >= 1 ? [...history, points] : [points],
+                });
             },
         },
         {
-            variant: activeTool === ImageAction.Segment ? 'flat' : 'outlined',
+            variant:
+                activeTool === ImageCanvasTool.Segment ? 'flat' : 'outlined',
             src: 'segmentFrame',
             alt: 'Segment frame from image',
-            onClick: () => setActiveTool(ImageAction.Segment),
+            onClick: () =>
+                dispatch({
+                    type: ImageCanvasAction.SET_ACTIVE_TOOL,
+                    payload: ImageCanvasTool.Segment,
+                }),
         },
         {
-            variant: activeTool === ImageAction.Pan ? 'flat' : 'outlined',
+            variant: activeTool === ImageCanvasTool.Pan ? 'flat' : 'outlined',
             src: 'pan',
             alt: 'Pan image',
-            onClick: () => setActiveTool(ImageAction.Pan),
+            onClick: () =>
+                dispatch({
+                    type: ImageCanvasAction.SET_ACTIVE_TOOL,
+                    payload: ImageCanvasTool.Pan,
+                }),
         },
     ];
 

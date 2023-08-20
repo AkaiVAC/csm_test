@@ -1,27 +1,38 @@
 import { Button } from '../..';
-import { ImageAction } from '../../../../types/enums';
-import { useCanvas } from '../index.hook';
+import { ImageCanvasAction, ImageCanvasTool } from '../../../../types/enums';
 import { CanvasOptionContainer, OpacityControl } from './index.styles';
+import { useCanvasStore } from '../index.hook';
 
 const CanvasOptions = () => {
-    const { activeTool, pointType, setPointType, maskOpacity, setMaskOpacity } =
-        useCanvas();
+    const { state, dispatch } = useCanvasStore();
+    const { activeTool, pointType, maskOpacity } = state;
+
     return (
         <CanvasOptionContainer>
             <Button
                 variant={pointType === 'object' ? 'success' : 'flat'}
-                onClick={() => setPointType('object')}
+                onClick={() =>
+                    dispatch({
+                        type: ImageCanvasAction.SET_POINT_TYPE,
+                        payload: 'object',
+                    })
+                }
             >
                 Object
             </Button>
             <Button
                 variant={pointType === 'background' ? 'danger' : 'flat'}
-                onClick={() => setPointType('background')}
+                onClick={() =>
+                    dispatch({
+                        type: ImageCanvasAction.SET_POINT_TYPE,
+                        payload: 'background',
+                    })
+                }
             >
                 Background
             </Button>
 
-            {activeTool === ImageAction.Erase && (
+            {activeTool === ImageCanvasTool.Erase && (
                 <p>
                     <b>Hint:</b>
                     <br />
@@ -29,7 +40,7 @@ const CanvasOptions = () => {
                 </p>
             )}
 
-            {activeTool === ImageAction.Segment && (
+            {activeTool === ImageCanvasTool.Segment && (
                 <OpacityControl>
                     Mask Opacity
                     <input
@@ -38,7 +49,12 @@ const CanvasOptions = () => {
                         max='1'
                         step='0.1'
                         value={maskOpacity}
-                        onChange={(e) => setMaskOpacity(Number(e.target.value))}
+                        onChange={(e) =>
+                            dispatch({
+                                type: ImageCanvasAction.SET_MASK_OPACITY,
+                                payload: Number(e.target.value),
+                            })
+                        }
                     />
                 </OpacityControl>
             )}
