@@ -36,7 +36,9 @@ const SideNav = () => {
                 <Button
                     variant='sidebar'
                     icon={{ location: 'left', src: 'feedback' }}
-                    onClick={() => window.open('http://www.duckduckgo.com')}
+                    onClick={() =>
+                        window.open('https://forms.gle/XhCeamGgyiF888w1A')
+                    }
                 >
                     Submit Feedback
                 </Button>
