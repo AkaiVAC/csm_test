@@ -85,5 +85,12 @@ declare global {
         deviceType: import('./enums').DeviceType;
         deviceWidth: number;
     };
+
+    type ImageFile = File;
+    type ImageContextType = {
+        currentImage: string | null;
+        sendAndReceiveImage: (imageFile: ImageFile) => Promise<void>;
+        fetchNewImage: () => Promise<void>;
+    };
 }
 export {};
