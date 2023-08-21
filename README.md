@@ -84,6 +84,7 @@ The following design enhancements were made during development:
 -   Various tools employ distinct cursors to enhance user interaction.
 -   The options for selecting Object or Background are dynamically hidden based on the currently selected tool.
 -   The canvas employs a background color distinct from the overall design to ensure a clear visual distinction.
+-   The application is designed for keyboard accessibility, with the exception of the canvas region.
 
 ## Scope Reduction and Further Development
 
