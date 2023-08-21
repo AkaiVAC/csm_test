@@ -3,6 +3,10 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "author": {
+        "name": "Arun Chithambaram",
+        "url": "https://github.com/AkaiVAC"
+    },
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
