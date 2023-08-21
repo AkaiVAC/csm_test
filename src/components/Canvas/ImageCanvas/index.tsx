@@ -7,7 +7,7 @@ import {
     ImagePoint,
 } from './index.styles';
 import { ImageCanvasAction, ImageCanvasTool } from '../../../../types/enums';
-import { useCanvasStore } from '../index.hook';
+import { useCanvasStore } from '../../../stores/canvas';
 
 const ImageCanvas = () => {
     const { state, dispatch } = useCanvasStore();
@@ -103,6 +103,7 @@ const ImageCanvas = () => {
                     }, 10)
                 }
                 doubleClick={{ disabled: true }}
+                pinch={{ step: 2 }}
             >
                 <TransformComponent>
                     <ImageContainer

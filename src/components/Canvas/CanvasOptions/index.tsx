@@ -1,7 +1,7 @@
 import { Button } from '../..';
 import { ImageCanvasAction, ImageCanvasTool } from '../../../../types/enums';
 import { CanvasOptionContainer, OpacityControl } from './index.styles';
-import { useCanvasStore } from '../index.hook';
+import { useCanvasStore } from '../../../stores/canvas';
 
 const CanvasOptions = () => {
     const { state, dispatch } = useCanvasStore();

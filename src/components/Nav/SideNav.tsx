@@ -1,7 +1,7 @@
 import { Tooltip } from 'react-tooltip';
 import { Button, Nav } from '..';
 import { DeviceType } from '../../../types/enums';
-import { useDeviceStore } from '../../contexts/deviceWidth/index.hook';
+import { useDeviceStore } from '../../stores/device';
 
 const SideNav = () => {
     const { deviceType } = useDeviceStore();

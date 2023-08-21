@@ -1,9 +1,10 @@
+import React from 'react';
 import { DeviceType } from '../../types/enums';
-import { Canvas, Divider, Header, SideNav } from '../components';
-import { useDeviceStore } from '../contexts/deviceWidth/index.hook';
-import { TopBG, Container, MainSection, BottomBG } from './layout.styles';
+import { Divider, Header, SideNav } from '../components';
+import { useDeviceStore } from '../stores/device';
+import { TopBG, Container, MainSection, BottomBG } from './index.styles';
 
-const AppLayout = () => {
+const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     const deviceStore = useDeviceStore();
     return (
         <>
@@ -15,7 +16,7 @@ const AppLayout = () => {
                     <Divider variant='vertical' />
                 )}
                 <MainSection>
-                    <Canvas />
+                    {children}
                     {deviceStore.deviceType > DeviceType.Mobile && (
                         <Divider variant='horizontal' />
                     )}
@@ -27,4 +28,4 @@ const AppLayout = () => {
     );
 };
 
-export default AppLayout;
+export default DefaultLayout;

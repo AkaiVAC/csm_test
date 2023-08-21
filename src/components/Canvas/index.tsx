@@ -2,7 +2,7 @@ import CanvasControls from './CanvasControls';
 import CanvasHeader from './CanvasHeader';
 import CanvasOptions from './CanvasOptions';
 import ImageCanvas from './ImageCanvas';
-import { CanvasProvider } from './index.context';
+import { CanvasProvider } from '../../stores/canvas/index.provider';
 import { CanvasContainer, InteractiveArea } from './index.styles';
 
 const Canvas = () => {

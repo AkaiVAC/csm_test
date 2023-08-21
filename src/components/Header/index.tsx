@@ -1,7 +1,7 @@
 import { Tooltip } from 'react-tooltip';
 import { Nav, Icon, Dropdown } from '..';
 import { DeviceType } from '../../../types/enums';
-import { useDeviceStore } from '../../contexts/deviceWidth/index.hook';
+import { useDeviceStore } from '../../stores/device';
 import { HeaderContainer, LogoContainer, LogoImage } from './index.styles';
 
 const Header = () => {

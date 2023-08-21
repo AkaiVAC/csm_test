@@ -7,8 +7,8 @@ import {
     SessionTitle,
     StatusBubble,
 } from './index.styles';
-import { useCanvasStore } from '../index.hook';
-import { useDeviceStore } from '../../../contexts/deviceWidth/index.hook';
+import { useCanvasStore } from '../../../stores/canvas';
+import { useDeviceStore } from '../../../stores/device';
 
 const CanvasHeader = () => {
     const deviceStore = useDeviceStore();

@@ -1,5 +1,6 @@
-import React, { useReducer, createContext } from 'react';
+import { useReducer } from 'react';
 import { ImageCanvasAction, ImageCanvasTool } from '../../../types/enums';
+import { CanvasContext } from './index.context';
 
 const initialCanvasState: ImageCanvasState = {
     history: [],
@@ -37,10 +38,6 @@ const canvasReducer = (
             return state;
     }
 };
-
-export const CanvasContext = createContext<CanvasContextType | undefined>(
-    undefined
-);
 
 export const CanvasProvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(canvasReducer, initialCanvasState);

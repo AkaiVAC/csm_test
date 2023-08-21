@@ -1,24 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
-import { DeviceType } from '../../../types/enums';
-import { Theme } from '../../layouts/Theme';
-
-const updateDeviceType = () => {
-    const deviceWidth = window.document.documentElement.clientWidth;
-    switch (true) {
-        case deviceWidth <= Theme.sizes.mobile:
-            return DeviceType.Mobile;
-        case deviceWidth > Theme.sizes.mobile &&
-            deviceWidth < Theme.sizes.tablet:
-            return DeviceType.Tablet;
-        default:
-            return DeviceType.Monitor;
-    }
-};
-
-export const DeviceContext = createContext<DeviceContextType>({
-    deviceType: updateDeviceType(),
-    deviceWidth: window.document.documentElement.clientWidth,
-});
+import { useState, useEffect } from 'react';
+import { DeviceContext } from './index.context';
+import { updateDeviceType } from './index.utils';
 
 export const DeviceProvider = ({ children }: { children: React.ReactNode }) => {
     const [deviceWidth, setDeviceWidth] = useState(

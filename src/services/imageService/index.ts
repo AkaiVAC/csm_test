@@ -1,43 +1,12 @@
-import axios, { AxiosResponse } from 'axios';
+import { useContext } from 'react';
+import { ImageContext } from './index.context';
 
-const BASE_URL = 'api_base_url';
-
-export const segmentImage = async (imageFile: ImageFile): Promise<string> => {
-    try {
-        const formData = new FormData();
-        formData.append('image', imageFile);
-
-        const response: AxiosResponse<{ image: string }> = await axios.post(
-            `${BASE_URL}/segmentImage`,
-            formData,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            }
+export const useImageSegmentation = () => {
+    const context = useContext(ImageContext);
+    if (!context) {
+        throw new Error(
+            'useImageSegmentation must be used within an ImageProvider'
         );
-
-        return response.data.image;
-    } catch (error) {
-        console.error('Error sending image:', error);
-        throw error;
     }
-};
-
-export const getSegmentedImage = async (): Promise<string> => {
-    try {
-        const response: AxiosResponse<ArrayBuffer> = await axios.get(
-            `${BASE_URL}/getImage`,
-            {
-                responseType: 'arraybuffer',
-            }
-        );
-
-        const imageBlob = new Blob([response.data], { type: 'image/jpeg' });
-        const imageUrl = URL.createObjectURL(imageBlob);
-        return imageUrl;
-    } catch (error) {
-        console.error('Error getting image:', error);
-        throw error;
-    }
+    return context;
 };

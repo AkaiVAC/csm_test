@@ -4,7 +4,7 @@ import { CanvasControlContainer } from './index.styles';
 import { Icon } from '../..';
 import { ImageCanvasTool, ImageCanvasAction } from '../../../../types/enums';
 import { IconProps } from '../../Icon';
-import { useCanvasStore } from '../index.hook';
+import { useCanvasStore } from '../../../stores/canvas';
 
 const CanvasControls = () => {
     const { state, dispatch } = useCanvasStore();

@@ -89,8 +89,7 @@ declare global {
     type ImageFile = File;
     type ImageContextType = {
         currentImage: string | null;
-        sendAndReceiveImage: (imageFile: ImageFile) => Promise<void>;
-        fetchNewImage: () => Promise<void>;
+        getSegmentedImage: (imageFile: ImageFile) => Promise<void>;
     };
 }
 export {};
