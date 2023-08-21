@@ -7,7 +7,7 @@ const initialCanvasState: ImageCanvasState = {
     cursorType: 'crosshair',
     points: [],
     pointType: 'object',
-    zoomLevel: 1,
+    zoomLevel: 1.5,
     isPanning: false,
     maskOpacity: 0.5,
 };

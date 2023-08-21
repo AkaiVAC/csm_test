@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const ImageCanvasContainer = styled.div<{ theme: ThemeOptions }>`
     width: 100%;
-    height: 30rem;
-    background-color: ${({ theme }) => theme.colors.border};
+    height: calc(100% - 9vh);
+    background-color: ${({ theme }) => theme.colors.background};
     border-radius: 1.5rem;
 
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
         & {
-            height: 34rem;
+            height: 32rem;
         }
     }
 

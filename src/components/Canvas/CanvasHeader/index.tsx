@@ -1,7 +1,12 @@
 import { Tooltip } from 'react-tooltip';
 import { Icon, Button } from '../..';
 import { DeviceType, ImageCanvasTool } from '../../../../types/enums';
-import { CanvasHeaderContainer, SessionTitle } from './index.styles';
+import {
+    CanvasHeaderContainer,
+    MobileContainer,
+    SessionTitle,
+    StatusBubble,
+} from './index.styles';
 import { useCanvasStore } from '../index.hook';
 import { useDeviceStore } from '../../../contexts/deviceWidth/index.hook';
 
@@ -26,17 +31,24 @@ const CanvasHeader = () => {
                     />
                 </div>
             )}
-            <SessionTitle>SESSION_1687955097_5347443</SessionTitle>
-            <Button
-                variant='flat'
-                icon={{ src: 'download', location: 'left' }}
-                disabled={
-                    useCanvasStore().state.activeTool !==
-                    ImageCanvasTool.Segment
-                }
-            >
-                {deviceStore.deviceType > DeviceType.Mobile && 'Download'}
-            </Button>
+            <SessionTitle>
+                SESSION_1687955097_5347443
+                {deviceStore.deviceType >= DeviceType.Tablet && (
+                    <StatusBubble>Real2SimCompleted</StatusBubble>
+                )}
+            </SessionTitle>
+            <MobileContainer>
+                <Button
+                    variant='flat'
+                    icon={{ src: 'download', location: 'left' }}
+                    disabled={
+                        useCanvasStore().state.activeTool !==
+                        ImageCanvasTool.Segment
+                    }
+                >
+                    {deviceStore.deviceType > DeviceType.Tablet && 'Download'}
+                </Button>
+            </MobileContainer>
         </CanvasHeaderContainer>
     );
 };

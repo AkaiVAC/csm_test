@@ -48,7 +48,7 @@ const CanvasControls = () => {
         {
             variant: 'outlined',
             src: 'undo',
-            alt: 'Undo point addition',
+            alt: 'Undo previous action',
             onClick: () => {
                 dispatch({
                     type: ImageCanvasAction.SET_POINTS,
@@ -94,9 +94,7 @@ const CanvasControls = () => {
             variant:
                 activeTool === ImageCanvasTool.Segment ? 'flat' : 'outlined',
             src: 'segmentFrame',
-            alt: points.length
-                ? 'Segment frame from image'
-                : 'Add points to start segmentation',
+            alt: 'Segment frame from image',
             disabled: Boolean(!points.length),
             onClick: () => {
                 dispatch({

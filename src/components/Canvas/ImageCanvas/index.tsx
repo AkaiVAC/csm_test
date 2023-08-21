@@ -6,13 +6,8 @@ import {
     ImageMaskContainer,
     ImagePoint,
 } from './index.styles';
-import {
-    DeviceType,
-    ImageCanvasAction,
-    ImageCanvasTool,
-} from '../../../../types/enums';
+import { ImageCanvasAction, ImageCanvasTool } from '../../../../types/enums';
 import { useCanvasStore } from '../index.hook';
-import { useDeviceStore } from '../../../contexts/deviceWidth/index.hook';
 
 const ImageCanvas = () => {
     const { state, dispatch } = useCanvasStore();
@@ -45,6 +40,14 @@ const ImageCanvas = () => {
         const x = (event.clientX - rect.left) / zoomLevel;
         const y = (event.clientY - rect.top) / zoomLevel;
         const type = pointType;
+
+        if (
+            points.find(
+                (point) => point.x === x && point.y === y && point.type === type
+            )
+        ) {
+            return;
+        }
 
         dispatch({
             type: ImageCanvasAction.SET_POINTS,
@@ -86,22 +89,20 @@ const ImageCanvas = () => {
         dispatch({ type: ImageCanvasAction.SET_IS_PANNING, payload: value });
     };
 
-    const initialScale =
-        useDeviceStore().deviceType >= DeviceType.Tablet ? 1 : 2;
-
     return (
         <ImageCanvasContainer>
             <TransformWrapper
                 onInit={(ref) =>
-                    setTimeout(() => ref.centerView(initialScale, 0), 100)
+                    setTimeout(() => ref.centerView(zoomLevel, 500), 500)
                 }
                 onZoom={handleZoom}
                 onPanning={() => setIsPanning(true)}
                 onPanningStop={() =>
                     setTimeout(() => {
                         setIsPanning(false);
-                    }, 1)
+                    }, 10)
                 }
+                doubleClick={{ disabled: true }}
             >
                 <TransformComponent>
                     <ImageContainer
