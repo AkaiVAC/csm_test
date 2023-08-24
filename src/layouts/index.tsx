@@ -8,7 +8,6 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     const deviceStore = useDeviceStore();
     return (
         <>
-            <TopBG />
             <Header />
             <Container>
                 {deviceStore.deviceType >= DeviceType.Tablet && <SideNav />}
@@ -23,6 +22,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
                 </MainSection>
                 {deviceStore.deviceType < DeviceType.Tablet && <SideNav />}
             </Container>
+            <TopBG />
             <BottomBG />
         </>
     );

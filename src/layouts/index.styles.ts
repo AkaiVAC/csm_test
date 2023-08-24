@@ -11,6 +11,7 @@ export const TopBG = styled.div`
     background-size: 100%;
     background-repeat: no-repeat;
 
+    z-index: 0;
     pointer-events: none;
 `;
 

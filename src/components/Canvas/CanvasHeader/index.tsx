@@ -1,33 +1,16 @@
 import { Tooltip } from 'react-tooltip';
-import { Icon, Button } from '../..';
-import { DeviceType, ImageCanvasTool } from '../../../../types/enums';
+import { Icon, ImageMaskDownloadButton } from '../..';
+import { DeviceType } from '../../../../types/enums';
 import {
     CanvasHeaderContainer,
     MobileContainer,
     SessionTitle,
     StatusBubble,
 } from './index.styles';
-import { useCanvasStore } from '../../../stores/canvas';
 import { useDeviceStore } from '../../../stores/device';
-import axios from 'axios';
 
 const CanvasHeader = () => {
     const deviceStore = useDeviceStore();
-
-    const downloadImageMask = () => {
-        axios({
-            url: '/obj_mask.jpeg',
-            method: 'GET',
-            responseType: 'blob',
-        }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'image_mask.jpg');
-            document.body.appendChild(link);
-            link.click();
-        });
-    };
 
     return (
         <CanvasHeaderContainer>
@@ -55,17 +38,7 @@ const CanvasHeader = () => {
                 )}
             </SessionTitle>
             <MobileContainer>
-                <Button
-                    variant='flat'
-                    icon={{ src: 'download', location: 'left' }}
-                    disabled={
-                        useCanvasStore().state.activeTool !==
-                        ImageCanvasTool.Segment
-                    }
-                    onClick={downloadImageMask}
-                >
-                    {deviceStore.deviceType > DeviceType.Tablet && 'Download'}
-                </Button>
+                <ImageMaskDownloadButton />
             </MobileContainer>
         </CanvasHeaderContainer>
     );
