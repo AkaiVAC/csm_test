@@ -85,10 +85,6 @@ const ImageCanvas = () => {
         });
     };
 
-    const setIsPanning = (value: boolean) => {
-        dispatch({ type: ImageCanvasAction.SET_IS_PANNING, payload: value });
-    };
-
     return (
         <ImageCanvasContainer>
             <TransformWrapper
@@ -96,12 +92,7 @@ const ImageCanvas = () => {
                     setTimeout(() => ref.centerView(zoomLevel, 500), 500)
                 }
                 onZoom={handleZoom}
-                onPanning={() => setIsPanning(true)}
-                onPanningStop={() =>
-                    setTimeout(() => {
-                        setIsPanning(false);
-                    }, 10)
-                }
+                panning={{ disabled: activeTool !== ImageCanvasTool.Pan }}
                 doubleClick={{ disabled: true }}
                 pinch={{ step: 2 }}
             >
@@ -125,6 +116,7 @@ const ImageCanvas = () => {
                             <ImageMaskContainer
                                 style={{
                                     opacity: maskOpacity,
+                                    maxHeight: '60vmin',
                                 }}
                             />
                         )}
