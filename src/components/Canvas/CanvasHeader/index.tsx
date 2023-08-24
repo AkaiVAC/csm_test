@@ -9,9 +9,26 @@ import {
 } from './index.styles';
 import { useCanvasStore } from '../../../stores/canvas';
 import { useDeviceStore } from '../../../stores/device';
+import axios from 'axios';
 
 const CanvasHeader = () => {
     const deviceStore = useDeviceStore();
+
+    const downloadImageMask = () => {
+        axios({
+            url: '/obj_mask.jpeg',
+            method: 'GET',
+            responseType: 'blob',
+        }).then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'image_mask.jpg');
+            document.body.appendChild(link);
+            link.click();
+        });
+    };
+
     return (
         <CanvasHeaderContainer>
             {deviceStore.deviceType > DeviceType.Mobile && (
@@ -45,6 +62,7 @@ const CanvasHeader = () => {
                         useCanvasStore().state.activeTool !==
                         ImageCanvasTool.Segment
                     }
+                    onClick={downloadImageMask}
                 >
                     {deviceStore.deviceType > DeviceType.Tablet && 'Download'}
                 </Button>
