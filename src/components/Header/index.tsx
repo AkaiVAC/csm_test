@@ -29,7 +29,7 @@ const Header = () => {
                 )}
                 <a href='/' aria-label='Home' style={{ display: 'flex' }}>
                     <LogoImage
-                        src='/logo.svg'
+                        src='/logo_main.svg'
                         alt='Logo'
                         width='79'
                         height='26'
