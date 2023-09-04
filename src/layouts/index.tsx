@@ -2,7 +2,7 @@ import React from 'react';
 import { DeviceType } from '../../types/enums';
 import { Divider, Header, SideNav } from '../components';
 import { useDeviceStore } from '../stores/device';
-import { TopBG, Container, MainSection, BottomBG } from './index.styles';
+import { Container, MainSection } from './index.styles';
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     const deviceStore = useDeviceStore();
@@ -22,8 +22,6 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
                 </MainSection>
                 {deviceStore.deviceType < DeviceType.Tablet && <SideNav />}
             </Container>
-            <TopBG />
-            <BottomBG />
         </>
     );
 };

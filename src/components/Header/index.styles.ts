@@ -4,6 +4,11 @@ export const HeaderContainer = styled.header<{ theme: ThemeOptions }>`
     height: 2.75rem;
 
     padding: 0.9375rem 1.25rem 0.9375rem 1.375rem;
+    background-image: url('colors.webp');
+    background-position: top;
+    background-size: 150%;
+    background-repeat: no-repeat;
+
     backdrop-filter: blur(2.1875rem);
     background-color: hsla(0, 0%, 100%, 0.6);
     border-radius: 0.625rem;

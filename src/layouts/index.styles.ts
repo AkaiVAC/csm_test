@@ -1,25 +1,5 @@
 import styled from 'styled-components';
 
-export const TopBG = styled.div`
-    height: 100%;
-
-    position: fixed;
-    inset: 0 0 0 0;
-
-    background-image: url('colors.webp');
-    background-position: top;
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-    z-index: 0;
-    pointer-events: none;
-`;
-
-export const BottomBG = styled(TopBG)`
-    rotate: 180deg;
-    background-size: 50%;
-`;
-
 export const Container = styled.div`
     height: calc(100dvh - 6.625rem);
 
