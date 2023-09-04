@@ -6,12 +6,6 @@ export const ImageCanvasContainer = styled.div<{ theme: ThemeOptions }>`
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: 1.5rem;
 
-    @media screen and (max-width: ${({ theme }) => `${theme.sizes.tablet}px`}) {
-        & {
-            height: 32rem;
-        }
-    }
-
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
         & {
             grid-area: canvas;

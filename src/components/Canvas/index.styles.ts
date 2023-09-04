@@ -24,7 +24,7 @@ export const CanvasContainer = styled.div<{ theme: ThemeOptions }>`
 
 export const InteractiveArea = styled.div`
     width: 100%;
-    height: calc(100dvh - 11.3rem);
+    height: calc(100dvh - 8.5rem);
 
     background-color: white;
     display: flex;
@@ -33,6 +33,7 @@ export const InteractiveArea = styled.div`
     @media screen and (max-width: ${({ theme }) => `${theme.sizes.mobile}px`}) {
         & {
             width: calc(100% - 2rem);
+            height: calc(100dvh - 11.5rem);
 
             display: grid;
             grid-template: minmax(5rem, 100%) / 1fr 1fr;

@@ -14,12 +14,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
                 {deviceStore.deviceType > DeviceType.Mobile && (
                     <Divider variant='vertical' />
                 )}
-                <MainSection>
-                    {children}
-                    {deviceStore.deviceType > DeviceType.Mobile && (
-                        <Divider variant='horizontal' />
-                    )}
-                </MainSection>
+                <MainSection>{children}</MainSection>
                 {deviceStore.deviceType < DeviceType.Tablet && <SideNav />}
             </Container>
         </>

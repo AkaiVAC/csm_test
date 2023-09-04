@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const MainSection = styled.main`
     display: grid;
-    grid-template: 90% 10% / 1fr;
+    grid-template: 1fr / 1fr;
     align-items: start;
     gap: 0.25rem;
 
