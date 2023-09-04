@@ -7,7 +7,7 @@ const Theme: ThemeOptions = {
         tertiary: '#C8EAFF',
         background: '#F8F9FA',
         border: '#DEE2E6',
-        success: '#28A745',
+        success: '#227E37',
         danger: '#DC3545',
     },
     fonts: {
