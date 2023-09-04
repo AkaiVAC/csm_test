@@ -24,7 +24,7 @@ export const CanvasContainer = styled.div<{ theme: ThemeOptions }>`
 
 export const InteractiveArea = styled.div`
     width: 100%;
-    height: calc(100dvh - 8.5rem);
+    height: calc(100dvh - 11rem);
 
     background-color: white;
     display: flex;
